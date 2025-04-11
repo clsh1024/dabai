@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"> <!-- 通常不希望搜索引擎索引搜索结果页 -->
+    <title>搜索结果 - 大白小应用</title>
+    <link rel="stylesheet" href="style-v4.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+        .search-results-main {
+            padding: 40px 0 80px;
+            min-height: 60vh; /* 让内容区至少有一定高度 */
+        }
+        .search-query-display {
+            text-align: center;
+            font-size: 1.2em;
+            color: var(--light-text);
+            margin-bottom: 40px;
+        }
+        .search-query-display strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .search-results-container {
+            max-width: 800px; /* 限制结果区域宽度 */
+            margin: 0 auto;
+            padding: 30px;
+            background-color: var(--white-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+            box-shadow: var(--card-shadow);
+        }
+        #searchResultsOutput {
+            line-height: 1.8;
+        }
+        #searchResultsOutput .loading,
+        #searchResultsOutput .error {
+            text-align: center;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        #searchResultsOutput .result-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+         #searchResultsOutput .result-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        #searchResultsOutput h3 { /* 工具名称或提示标题 */
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+            color: var(--dark-text);
+        }
+        #searchResultsOutput .tool-link a { /* 工具链接 */
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-bg);
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+         #searchResultsOutput .tool-link a:hover {
+             background-color: var(--primary-hover);
+             color: var(--white-bg);
+         }
+
+        #searchResultsOutput .suggestion-link a { /* 问卷链接 */
+             color: var(--primary-color);
+             font-weight: 500;
+             text-decoration: underline;
+         }
+
+        #searchResultsOutput .ai-answer p { /* AI 回答段落 */
+             margin-bottom: 1em;
+             color: var(--light-text);
+         }
+         #searchResultsOutput .ai-answer p:last-child {
+             margin-bottom: 0;
+         }
+         #searchResultsOutput .ai-answer strong,
+         #searchResultsOutput .ai-answer b {
+              color: var(--dark-text); /* 强调 AI 回答中的加粗 */
+         }
+         /* AI 回答的代码块样式 (简单示例) */
+         #searchResultsOutput .ai-answer pre {
+              background-color: #f0f0f0;
+              padding: 15px;
+              border-radius: 5px;
+              overflow-x: auto; /* 允许横向滚动 */
+              font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+              font-size: 0.9em;
+              border: 1px solid #ddd;
+         }
+          #searchResultsOutput .ai-answer code {
+               font-family: inherit;
+          }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. 导航栏 (和首页完全一样) -->
+    <header class="navbar">
+        <div class="container">
+             <a href="/" class="logo">
+                 <i class="ri-robot-2-line logo-icon"></i>
+                 大白小应用
+             </a>
+             <nav>
+                 <!-- 导航链接 -->
+                 <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="javascript:void(0);">关于我</a></li>
+                    <li><a href="contact.html" >联系方式</a></li> <!-- 将此页设为 active -->
+                    <li><a href="too-down.html">工具源码</a></li>
+                    <li><a href="ai-learning.html">AI学习</a></li>
+                </ul>
+             </nav>
+             <!-- 搜索框 -->
+             <form action="/search" method="get" class="search-form" id="searchForm">
+                  <input type="search" id="searchInput" name="q" placeholder="AI搜索" class="search-input" aria-label="搜索">
+                 <button type="submit" class="search-button" aria-label="搜索">
+                     <i class="ri-search-line"></i>
+                 </button>
+             </form>
+        </div>
+    </header>
+
+    <!-- 2. 主要内容区域 -->
+    <main class="container search-results-main">
+        <div class="search-query-display">
+            正在搜索：<strong id="displayQuery">...</strong>
+        </div>
+        <div class="search-results-container">
+            <div id="searchResultsOutput">
+                <p class="loading">正在加载结果...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 3. 页脚 (和首页完全一样) -->
+    <footer class="footer-v2">
+        <div class="container">
+            <p>© 2024 大白小应用. AI 驱动创新.</p>
+        </div>
+    </footer>
+
+    <!-- 腾讯问卷悬浮按钮代码 (如果需要) -->
+    <div id="idy_floatdiv" style="position:fixed; ...">...</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const displayQueryElem = document.getElementById('displayQuery');
+            const resultsOutputElem = document.getElementById('searchResultsOutput');
+            const queryParams = new URLSearchParams(window.location.search);
+            const query = queryParams.get('q');
+
+            if (!query) {
+                displayQueryElem.textContent = '请输入搜索内容';
+                resultsOutputElem.innerHTML = '<p class="error">没有提供搜索词。</p>';
+                return;
+            }
+
+            displayQueryElem.textContent = query; // 显示用户搜索的词
+            resultsOutputElem.innerHTML = '<p class="loading">正在努力搜索中，请稍候...</p>';
+
+            try {
+                // 调用后端 Serverless Function
+                const response = await fetch('/api/search', { // !!! Vercel 约定路径，需要修改为你实际的 API 路径
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: query }),
+                });
+
+                if (!response.ok) {
+                    // throw new Error(`HTTP error! status: ${response.status}`);
+                    // 尝试解析错误信息
+                    let errorData;
+                    try {
+                        errorData = await response.json();
+                    } catch (e) {
+                         throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                     throw new Error(errorData.error || `请求失败，状态码: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // 根据后端返回的类型显示结果
+                resultsOutputElem.innerHTML = ''; // 清空加载提示
+                if (data.type === 'tool') {
+                    resultsOutputElem.innerHTML = `
+                        <div class="result-item">
+                            <h3><i class="ri-tools-line"></i> 找到相关工具：${data.name}</h3>
+                            <p class="tool-link">
+                                <a href="${data.link}">前往工具页面 <i class="ri-arrow-right-s-line"></i></a>
+                            </p>
+                        </div>
+                    `;
+                } else if (data.type === 'suggestion') {
+                    resultsOutputElem.innerHTML = `
+                        <div class="result-item">
+                             <h3><i class="ri-question-line"></i> 未找到直接匹配的工具</h3>
+                             <p>我们暂时没有找到完全符合您描述的工具。</p>
+                             <p class="suggestion-link">
+                                 如果您希望我们开发这个功能，欢迎 <a href="${data.link}" target="_blank">点击这里提交您的建议</a>，非常感谢！
+                             </p>
+                        </div>
+                    `;
+                } else if (data.type === 'ai_answer') {
+                    // 注意：AI 返回的答案可能包含 HTML 或 Markdown，需要安全处理
+                    // 这里简单地将纯文本插入，如果需要渲染 Markdown，需要引入库
+                    resultsOutputElem.innerHTML = `
+                        <div class="result-item">
+                            <h3><i class="ri-robot-2-line"></i> AI 回答：</h3>
+                            <div class="ai-answer">${renderAnswer(data.answer)}</div>
+                        </div>
+                    `;
+                } else {
+                     resultsOutputElem.innerHTML = '<p class="error">收到未知格式的响应。</p>';
+                }
+
+            } catch (error) {
+                console.error('Search failed:', error);
+                resultsOutputElem.innerHTML = `<p class="error">搜索失败：${error.message}</p>`;
+            }
+        });
+
+        // (可选) 简单的答案渲染函数，可以扩展支持 Markdown
+        function renderAnswer(answerText) {
+            // 最基础：替换换行符为 <br>，并转义 HTML 标签防止 XSS
+            const escapedText = answerText
+                .replace(/&/g, "&")
+                .replace(/</g, "<")
+                .replace(/>/g, ">")
+                .replace(/"/g, """)
+                .replace(/'/g, "'");
+            // 将换行符转换为 <br>，并用 <p> 包裹段落
+             const paragraphs = escapedText.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+             // 可以在这里添加更复杂的 Markdown 解析逻辑
+            return paragraphs;
+        }
+
+        // 导航栏搜索框提交处理 (如果还没添加的话)
+         const searchFormNav = document.getElementById('searchForm'); // 确保导航栏的 form 有 id="searchForm"
+         const searchInputNav = document.getElementById('searchInput'); // 确保导航栏的 input 有 id="searchInput"
+
+         if(searchFormNav && searchInputNav) {
+             searchFormNav.addEventListener('submit', (event) => {
+                 event.preventDefault(); // 阻止默认提交
+                 const query = searchInputNav.value.trim();
+                 if (query) {
+                     window.location.href = `/search-results.html?q=${encodeURIComponent(query)}`;
+                 }
+             });
+         }
+
+    </script>
+
+</body>
+</html>

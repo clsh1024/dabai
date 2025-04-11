@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="获取大白小应用提供的AI工具源码网盘链接，探索、学习或自行部署。涵盖家庭教育、职场提效等多个领域。">
+    <title>工具源码下载 - 大白小应用</title>
+    <link rel="stylesheet" href="style-v4.css"> <!-- 继续使用同一个 CSS 文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script>
+        // 百度统计代码
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?fdd5ceaf0582d764eb6956e3a9ab24af";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 特定页面样式 -->
+    <style>
+        .source-code-main {
+            padding: 40px 0 70px; /* 调整主要内容区域内边距 */
+        }
+        .source-code-main h1 {
+            text-align: center;
+            font-size: 2.2em; /* 调整主标题大小 */
+            margin-bottom: 15px;
+        }
+        .page-description {
+            text-align: center;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 40px auto; /* 调整下方间距 */
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        .category-source-group {
+            margin-bottom: 35px; /* 减少分类组之间的间距 */
+            padding: 20px 25px; /* 减少分类组内边距 */
+            background-color: var(--light-bg);
+            border-radius: 8px; /* 可以调整圆角 */
+            border: 1px solid #eee; /* 使用更浅的边框 */
+        }
+        .category-source-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-source-title {
+            font-size: 1.5em; /* 减小分类标题大小 */
+            font-weight: 600;
+            margin: 0 0 20px 0; /* 调整下方间距 */
+            padding-bottom: 10px; /* 减少下划线空间 */
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            color: var(--dark-text);
+        }
+        .category-source-title i {
+             margin-right: 8px; /* 调整图标间距 */
+             color: var(--primary-color);
+             vertical-align: -2px;
+             font-size: 1em; /* 调整图标大小 */
+        }
+
+        .tool-source-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tool-source-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0; /* 减少工具项的上下内边距 */
+            border-bottom: 1px solid #eee; /* 使用更细、更浅的分隔线 */
+            flex-wrap: wrap;
+            gap: 8px; /* 减小换行时间距 */
+        }
+        .tool-source-item:last-child {
+            border-bottom: none;
+        }
+
+        .tool-name {
+            font-size: 1.05em; /* 调整工具名称字体 */
+            font-weight: 500;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .tool-name i {
+            margin-right: 6px; /* 调整图标间距 */
+            color: var(--secondary-color);
+            font-size: 1.1em;
+        }
+
+        /* 新的网盘链接样式 */
+        .source-link {
+            font-size: 0.9em; /* 链接字体更小 */
+            color: var(--primary-color);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 3px 6px; /* 轻微内边距，可选 */
+            border-radius: 4px; /* 轻微圆角，可选 */
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .source-link i { /* 链接图标 */
+            margin-left: 4px;
+            vertical-align: -1px;
+            font-size: 1.1em; /* 调整图标大小 */
+        }
+        .source-link:hover {
+            color: var(--primary-hover);
+            background-color: #f0f4ff; /* 悬停时加浅背景 */
+            text-decoration: underline;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .source-code-main { padding: 30px 0 60px; }
+            .source-code-main h1 { font-size: 1.8em; }
+            .page-description { font-size: 0.95em; margin-bottom: 30px;}
+            .category-source-group { padding: 15px 20px; margin-bottom: 30px;}
+            .category-source-title { font-size: 1.3em; margin-bottom: 15px; padding-bottom: 8px;}
+            .tool-source-item { padding: 8px 0; }
+            .tool-name { font-size: 1em; margin-bottom: 5px; }
+            .source-link { font-size: 0.85em; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. 导航栏 (保持不变) -->
+    <header class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="ri-robot-2-line logo-icon"></i>
+                大白小应用
+            </a>
+       <!-- ... (导航栏代码) ... -->
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="javascript:void(0);">关于我</a></li>
+                <li><a href="contact.html">联系方式</a></li> <!-- 将此页设为 active -->
+                <li><a href="too-down.html" class="active">工具源码</a></li>
+                <li><a href="ai-learning.html">AI学习</a></li>
+            </ul>
+        </nav>
+         <form action="/search" method="get" class="search-form" id="searchForm">
+             <input type="search" id="searchInput" name="q" placeholder="AI搜索..." class="search-input" aria-label="搜索源码">
+            <button type="submit" class="search-button" aria-label="搜索">
+                <i class="ri-search-line"></i>
+            </button>
+        </form>
+        <!-- ... -->
+    </div>
+    </header>
+
+    <!-- 2. 主要内容区域 -->
+    <main class="container source-code-main">
+        <h1><i class="ri-code-box-line"></i> 工具源码获取</h1> <!-- 修改标题 -->
+        <p class="page-description">
+            欢迎通过以下链接获取“大白小应用”工具的源码。您可以自由探索、学习代码实现。
+            (请注意：部分工具可能依赖特定环境或 API Key。如正常使用，需要填入自己的API)
+        </p>
+
+        <!-- ↓↓↓ 新增分类跳转链接 ↓↓↓ -->
+    <nav class="category-jump-links" aria-label="页面内分类导航">
+        <ul>
+            <li><a href="#family-education">家庭教育</a></li>
+            <li><a href="#workplace-efficiency">职场提效</a></li>
+            <li><a href="#side-hustle">副业探索</a></li>
+            <li><a href="#life-zhushou">生活助手</a></li>
+            <li><a href="#study-tool">学习工具</a></li>
+            <li><a href="#Creative Design">创意设计</a></li>
+            <!-- !! 确保这里的链接文本和 href 指向的 ID 与下面的 section 对应 !! -->
+        </ul>
+    </nav>
+    <!-- ↑↑↑ 分类跳转链接结束 ↑↑↑ -->
+
+
+        <!-- 分类一：家庭教育 -->
+        <section class="category-source-group" id="family-education">
+            <h2 class="category-source-title"><i class="ri-parent-line"></i> 家庭教育</h2>
+            <ul class="tool-source-list">
+                <li class="tool-source-item">
+                    <span class="tool-name"><i class="ri-sparkling-2-line"></i> 智能故事生成器</span>
+                    <!-- !! 替换为实际网盘链接 !! -->
+                    <a href="你的网盘链接1" class="source-link" target="_blank">
+                        访问链接 <i class="ri-external-link-line"></i> <!-- 使用外部链接图标 -->
+                    </a>
+                </li>
+                <li class="tool-source-item">
+                    <span class="tool-name"><i class="ri-calendar-todo-line"></i> 儿童学习计划助手</span>
+                    <a href="你的网盘链接2" class="source-link" target="_blank">
+                        访问链接 <i class="ri-external-link-line"></i>
+                    </a>
+                </li>
+                <li class="tool-source-item">
+                    <span class="tool-name"><i class="ri-lightbulb-flash-line"></i> 亲子活动推荐器</span>
+                     <a href="你的网盘链接3" class="source-link" target="_blank">
+                        访问链接 <i class="ri-external-link-line"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 分类二：职场提效 -->
+        <section class="category-source-group" id="workplace-efficiency">
+            <h2 class="category-source-title"><i class="ri-briefcase-4-line"></i> 职场提效</h2>
+            <ul class="tool-source-list">
+                <li class="tool-source-item">
+                    <span class="tool-name"><i class="ri-mail-send-line"></i> 邮件智能回复</span>
+                    <a href="你的网盘链接4" class="source-link" target="_blank">
+                        访问链接 <i class="ri-external-link-line"></i>
+                    </a>
+                </li>
+                 <li class="tool-source-item">
+                    <span class="tool-name"><i class="ri-file-text-line"></i> 会议纪要生成</span>
+                    <a href="你的网盘链接5" class="source-link" target="_blank">
+                        访问链接 <i class="ri-external-link-line"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ... 其他分类 ... -->
+<!-- 分类三：副业探索 -->
+<section class="category-source-group" id="side-hustle">
+    <h2 class="category-source-title"><i class="ri-briefcase-4-line"></i> 副业探索</h2>
+    <ul class="tool-source-list">
+        <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-mail-send-line"></i> 邮件智能回复</span>
+            <a href="你的网盘链接4" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+         <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-file-text-line"></i> 会议纪要生成</span>
+            <a href="你的网盘链接5" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<!-- 分类四：生活助手 -->
+<section class="category-source-group" id="life-zhushou">
+    <h2 class="category-source-title"><i class="ri-briefcase-4-line"></i> 生活助手</h2>
+    <ul class="tool-source-list">
+        <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-mail-send-line"></i> 邮件智能回复</span>
+            <a href="你的网盘链接4" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+         <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-file-text-line"></i> 会议纪要生成</span>
+            <a href="你的网盘链接5" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<!-- 分类五：学习工具 -->
+<section class="category-source-group" id="study-tool">
+    <h2 class="category-source-title"><i class="ri-briefcase-4-line"></i> 学习工具</h2>
+    <ul class="tool-source-list">
+        <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-mail-send-line"></i> 邮件智能回复</span>
+            <a href="你的网盘链接4" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+         <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-file-text-line"></i> 会议纪要生成</span>
+            <a href="你的网盘链接5" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+    </ul>
+</section>
+
+
+<!-- 分类六：创意设计 -->
+<section class="category-source-group" id="Creative Design">
+    <h2 class="category-source-title"><i class="ri-briefcase-4-line"></i> 创意设计</h2>
+    <ul class="tool-source-list">
+        <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-mail-send-line"></i> 邮件智能回复</span>
+            <a href="你的网盘链接4" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+         <li class="tool-source-item">
+            <span class="tool-name"><i class="ri-file-text-line"></i> 会议纪要生成</span>
+            <a href="你的网盘链接5" class="source-link" target="_blank">
+                访问链接 <i class="ri-external-link-line"></i>
+            </a>
+        </li>
+    </ul>
+</section>
+
+
+    </main>
+
+    <!-- 3. 页脚 (保持不变) -->
+    <footer class="footer-v2">
+       
+        <div class="container">
+            <p>© 2025 大白小应用. AI 驱动创新.</p>
+        </div>
+    </footer>
+    <!-- ... (页脚代码) ... -->
+   
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ↓↓↓ 添加 Meta Description ↓↓↓ -->
+<meta name="description" content="探索大白小应用提供的AI家庭教育工具，包括智能故事生成器、儿童学习计划助手、亲子活动推荐器等，用科技助力孩子成长。">
+<!-- ↑↑↑ Meta Description 结束 ↑↑↑ -->
+
+    <title>家庭教育工具 - 大白小应用</title> <!-- 页面标题反映分类 -->
+    <link rel="stylesheet" href="style-v4.css"> <!-- 链接同一个 CSS 文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script>
+        // 百度统计代码 (如果需要单独统计分类页，否则可省略)
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?fdd5ceaf0582d764eb6956e3a9ab24af"; // 确认是你的ID
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- 1. 导航栏 (和首页完全一样) -->
+    <header class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="ri-robot-2-line logo-icon"></i>
+                大白小应用
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="javascript:void(0);">关于我</a></li>
+                    <li><a href="contact.html">联系方式</a></li> <!-- 将此页设为 active -->
+                    <li><a href="too-down.html">工具源码</a></li>
+                    <li><a href="ai-learning.html">AI学习</a></li>
+                </ul>
+            </nav>
+             <!-- ↓↓↓ 新增搜索框表单 ↓↓↓ -->
+             <form action="/search" method="get" class="search-form" id="searchForm">
+                <input type="search" id="searchInput" name="q" placeholder="AI搜索..." class="search-input" aria-label="搜索工具">
+                <button type="submit" class="search-button" aria-label="搜索">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+            <!-- ↑↑↑ 搜索框表单结束 ↑↑↑ -->
+        </div>
+    </header>
+
+    <!-- 2. 分类页面头部区域 -->
+    <section class="category-page-header">
+        <div class="container">
+            <h1>
+                <i class="ri-parent-line header-icon"></i> <!-- 分类图标 -->
+                家庭教育
+            </h1>
+            <p class="category-description">
+                借助 AI 的力量，为家庭教育注入更多创意与可能。从个性化学习辅导到趣味互动生成，探索智能工具如何帮助家长更科学地引导孩子成长，激发潜能，增进亲子关系。
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. 该分类下的工具列表 -->
+    <main class="category-tools-section container">
+        <h2>可用工具列表</h2>
+        <div class="tool-grid"> <!-- 工具网格布局 -->
+
+            <!-- 工具卡片 1 -->
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-sparkling-2-line tool-icon"></i>
+                        智能故事生成器
+                    </h3>
+                    <p>输入关键词或主题，AI 自动创作适合孩子的睡前故事或趣味短文。</p>
+                </div>
+                <a href="path/to/story-generator.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+
+            <!-- 工具卡片 2 -->
+            <div class="tool-card">
+                 <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-calendar-todo-line tool-icon"></i>
+                        儿童学习计划助手
+                    </h3>
+                    <p>根据孩子的年龄和学习目标，智能规划每日或每周的学习任务与活动。</p>
+                 </div>
+                <a href="path/to/learning-planner.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+
+            <!-- 工具卡片 3 -->
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-lightbulb-flash-line tool-icon"></i>
+                        亲子活动推荐器
+                    </h3>
+                    <p>基于天气、时间和兴趣偏好，推荐适合全家参与的室内外活动。</p>
+                </div>
+                <a href="path/to/activity-recommender.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+            <!-- 工具卡片 3 -->
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-lightbulb-flash-line tool-icon"></i>
+                        亲子活动推荐器
+                    </h3>
+                    <p>基于天气、时间和兴趣偏好，推荐适合全家参与的室内外活动。</p>
+                </div>
+                <a href="path/to/activity-recommender.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+            <!-- 工具卡片 3 -->
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-lightbulb-flash-line tool-icon"></i>
+                        亲子活动推荐器
+                    </h3>
+                    <p>基于天气、时间和兴趣偏好，推荐适合全家参与的室内外活动。</p>
+                </div>
+                <a href="path/to/activity-recommender.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+            <!-- 工具卡片 3 -->
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-lightbulb-flash-line tool-icon"></i>
+                        亲子活动推荐器
+                    </h3>
+                    <p>基于天气、时间和兴趣偏好，推荐适合全家参与的室内外活动。</p>
+                </div>
+                <a href="path/to/activity-recommender.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+            <!-- 工具卡片 3 -->
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-lightbulb-flash-line tool-icon"></i>
+                        亲子活动推荐器
+                    </h3>
+                    <p>基于天气、时间和兴趣偏好，推荐适合全家参与的室内外活动。</p>
+                </div>
+                <a href="path/to/activity-recommender.html" class="tool-link-button"> <!-- 替换为实际工具链接 -->
+                    打开工具 <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+
+            <!-- 工具卡片 4 (待上线示例) -->
+            <div class="tool-card coming-soon-card"> <!-- 添加特殊类名 -->
+                <div class="tool-card-content">
+                    <h3>
+                        <i class="ri-time-line tool-icon"></i>
+                        新工具待上线...
+                    </h3>
+                    <p>更多家庭教育相关的 AI 小工具正在开发中，敬请期待！</p>
+                 </div>
+                 <span class="tool-link-button disabled"> <!-- 使用 span 替代 a，并添加 disabled 类 -->
+                     敬请期待
+                 </span>
+            </div>
+
+            <!-- ... 可以继续添加更多该分类下的工具卡片 ... -->
+
+        </div>
+    </main>
+
+    <!-- 4. 页脚 (和首页完全一样) -->
+    <footer class="footer-v2">
+        <div class="container">
+            <p>© 2025 大白小应用. AI 驱动创新.</p>
+        </div>
+    </footer>
+
+    <!-- 如果页面有特定JS，在这里引入 -->
+    <!-- <script src="js/category-page.js"></script> -->
+
+</body>
+</html>

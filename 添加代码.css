@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+ // 首页、具体页面需要添加，利于SEO
+
+<!-- ↓↓↓ 添加 Meta Description ↓↓↓ >
+    <meta name="description" content="探索大白小应用提供的AI家庭教育工具，包括智能故事生成器、儿童学习计划助手、亲子活动推荐器等，用科技助力孩子成长。">
+ <!-- ↑↑↑ Meta Description 结束 ↑↑↑ -->
+ 
+ 
+
+
+ <script>
+ // 百度统计代码
+ var _hmt = _hmt || [];
+ (function() {
+   var hm = document.createElement("script");
+   hm.src = "https://hm.baidu.com/hm.js?fdd5ceaf0582d764eb6956e3a9ab24af";
+   var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(hm, s);
+ })();
+ </script>
+
+
+ 

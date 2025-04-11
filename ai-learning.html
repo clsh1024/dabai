@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="探索大白小应用精选的 AI 学习资源：学习文档、AI 知识库和活跃的 AI 学习社群，助你快速入门和进阶。"> <!-- 更新 Meta Description -->
+    <title>AI 学习资源与社区 - 大白小应用</title> <!-- 更新 Title -->
+    <link rel="stylesheet" href="style-v4.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script>
+        // 百度统计代码
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?fdd5ceaf0582d764eb6956e3a9ab24af";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 特定页面样式 -->
+    <style>
+        .ai-learning-main {
+            padding: 50px 0 80px;
+        }
+        .ai-learning-main h1 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+        }
+        .page-intro {
+            text-align: center;
+            color: var(--light-text);
+            max-width: 750px;
+            margin: 0 auto 60px auto; /* 增加引言下方间距 */
+            font-size: 1.15em;
+            line-height: 1.8;
+        }
+
+        /* 通用 Section 标题样式 */
+        .learning-section h2,
+        .knowledge-base-section h2,
+        .community-section h2 {
+            font-size: 2.0em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            color: var(--dark-text);
+        }
+        .learning-section h2 i,
+        .knowledge-base-section h2 i,
+        .community-section h2 i {
+             margin-right: 12px; /* 图标与标题间距 */
+             vertical-align: -3px;
+             color: var(--primary-color);
+             font-size: 1.1em;
+        }
+         /* 社群标题去掉下划线 */
+        .community-section h2 {
+             border-bottom: none;
+             margin-bottom: 20px;
+        }
+
+        /* 列表区域通用样式 */
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .list-item {
+            background-color: var(--white-bg); /* 可选：给列表项加个浅背景 */
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-bottom: 20px; /* 列表项间距 */
+            transition: box-shadow 0.3s ease;
+        }
+        .list-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        }
+        .list-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between; /* 标题和链接/软件信息分开 */
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap; /* 允许换行 */
+            gap: 10px;
+        }
+        .item-title {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        .item-title a { /* 标题链接 */
+            color: var(--dark-text);
+        }
+        .item-title a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        .item-link a, .kb-software span { /* 文档链接 & 知识库软件 */
+            font-size: 0.9em;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+             padding: 4px 8px;
+             background-color: #e9f2ff;
+             border-radius: 4px;
+        }
+         .item-link a i {
+             margin-left: 3px;
+             vertical-align: -1px;
+         }
+        .item-link a:hover {
+            background-color: #d0e1ff;
+            color: var(--primary-hover);
+        }
+         .kb-software span { /* 知识库软件标签 */
+             background-color: #e9ecef;
+             color: #495057;
+             margin-left: 10px; /* 与链接的间距 */
+         }
+         .kb-software i {
+             margin-right: 4px;
+         }
+
+        .item-description {
+            color: var(--light-text);
+            line-height: 1.7;
+            font-size: 0.95em;
+            margin: 0;
+        }
+
+        /* 社群区域样式 (复用之前的) */
+        .community-section {
+            background-color: var(--light-bg);
+            padding: 50px 0;
+            text-align: center;
+            border-radius: var(--border-radius);
+             border: 1px solid var(--border-color);
+             margin-top: 60px; /* 与上方内容的间距 */
+        }
+        .community-intro {
+             color: var(--light-text);
+             max-width: 600px;
+             margin: 0 auto 30px auto;
+             font-size: 1.1em;
+        }
+        .community-qr-code {
+            max-width: 200px;
+            margin: 0 auto;
+            border: 5px solid var(--white-bg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .ai-learning-main h1 { font-size: 2.2em; }
+            .page-intro { font-size: 1.05em; margin-bottom: 40px; }
+            .learning-section h2, .knowledge-base-section h2, .community-section h2 { font-size: 1.7em; margin-bottom: 25px; }
+            .list-item { padding: 15px 20px; margin-bottom: 15px; }
+            .item-header { flex-direction: column; align-items: flex-start; } /* 小屏幕标题和链接/软件垂直排列 */
+            .item-title { font-size: 1.15em; margin-bottom: 8px; }
+            .item-link, .kb-software { margin-top: 5px; }
+             .kb-software span { margin-left: 0; margin-top: 5px; display: inline-block;} /* 让软件标签换行显示 */
+            .item-description { font-size: 0.9em; }
+            .community-section { padding: 40px 15px; margin-top: 40px; }
+            .community-intro { font-size: 1em; }
+            .community-qr-code { max-width: 180px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. 导航栏 (保持不变) -->
+    <header class="navbar">
+        <div class="container">
+        <!-- ... 导航栏代码 ... -->
+        <a href="/" class="logo">
+            <i class="ri-robot-2-line logo-icon"></i>
+            大白小应用
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="javascript:void(0);">关于我</a></li>
+                <li><a href="contact.html">联系方式</a></li> <!-- 将此页设为 active -->
+                <li><a href="too-down.html">工具源码</a></li>
+                <li><a href="ai-learning.html" class="active" >AI学习</a></li>
+            </ul>
+        </nav>
+         <form action="/search" method="get" class="search-form" id="searchForm">
+             <input type="search" id="searchInput" name="q" placeholder="搜索..." class="search-input" aria-label="搜索">
+            <button type="submit" class="search-button" aria-label="搜索">
+                <i class="ri-search-line"></i>
+            </button>
+        </form>
+    </div>
+        <!-- ... -->
+    </header>
+
+    <!-- 2. 主要内容区域 -->
+    <main class="container ai-learning-main">
+        <h1><i class="ri-graduation-cap-line"></i> AI 学习资源与社区</h1> <!-- 更新标题 -->
+        <p class="page-intro">
+            人工智能正在深刻改变世界，掌握 AI 知识与技能变得越来越重要。这里为你精选了一些优质的学习资源和交流平台，助你系统学习，共同进步。
+        </p>
+
+        <!-- 分区一：学习文档 -->
+        <section class="learning-section">
+            <h2><i class="ri-file-text-line"></i> 学习文档精选</h2>
+            <ul class="resource-list">
+                <!-- 文档条目 1 -->
+                <li class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title"><a href="文档链接1" target="_blank">《动手学深度学习》(PyTorch版)</a></h3> <!-- !! 替换链接 !! -->
+                        <span class="item-link">
+                            <a href="文档链接1" target="_blank">在线阅读 <i class="ri-external-link-line"></i></a>
+                        </span>
+                    </div>
+                    <p class="item-description">由李沐等人撰写，提供免费在线版本，内容全面且注重实践，包含大量可运行的代码示例，是学习深度学习的优秀中文资源。</p>
+                </li>
+                <!-- 文档条目 2 -->
+                <li class="list-item">
+                     <div class="item-header">
+                        <h3 class="item-title"><a href="文档链接2" target="_blank">Google AI 技术文档</a></h3> <!-- !! 替换链接 !! -->
+                         <span class="item-link">
+                            <a href="文档链接2" target="_blank">访问官网 <i class="ri-external-link-line"></i></a>
+                        </span>
+                    </div>
+                     <p class="item-description">Google AI 官方发布的技术文档、教程和案例研究，涵盖 TensorFlow、机器学习基础、负责任的 AI 等多个方面。</p>
+                </li>
+                <!-- ... 添加更多学习文档条目 ... -->
+            </ul>
+        </section>
+
+        <!-- 分区二：AI 知识库 -->
+        <section class="knowledge-base-section" style="margin-top: 60px;"> <!-- 增加与上方的间距 -->
+            <h2><i class="ri-database-2-line"></i> AI 知识库推荐</h2>
+             <ul class="resource-list">
+                 <!-- 知识库条目 1 -->
+                 <li class="list-item">
+                     <div class="item-header">
+                         <h3 class="item-title"><a href="知识库链接1" target="_blank">我的私藏 AI 笔记库</a></h3> <!-- !! 替换链接 !! -->
+                         <div class="kb-meta">
+                            <span class="item-link">
+                                <a href="知识库链接1" target="_blank">访问知识库 <i class="ri-external-link-line"></i></a>
+                            </span>
+                            <span class="kb-software">
+                                <i class="ri-flow-chart"></i> 使用软件: Obsidian <!-- !! 替换软件 !! -->
+                            </span>
+                         </div>
+                     </div>
+                     <p class="item-description">我在学习和实践 AI 过程中整理的笔记、代码片段、论文解读和资源链接，使用 Obsidian 构建，方便关联和查阅。</p>
+                 </li>
+                 <!-- 知识库条目 2 -->
+                  <li class="list-item">
+                     <div class="item-header">
+                         <h3 class="item-title"><a href="知识库链接2" target="_blank">AI Flow 中文文档库</a></h3> <!-- !! 替换链接 !! -->
+                         <div class="kb-meta">
+                            <span class="item-link">
+                                <a href="知识库链接2" target="_blank">查看文档 <i class="ri-external-link-line"></i></a>
+                            </span>
+                             <span class="kb-software">
+                                <i class="ri-book-3-line"></i> 使用软件: Docusaurus <!-- !! 替换软件 !! -->
+                            </span>
+                         </div>
+                     </div>
+                     <p class="item-description">一个专注于 AI 工作流和 MLOps 的中文知识库，整理了相关工具、最佳实践和教程，使用 Docusaurus 搭建。</p>
+                 </li>
+                 <!-- ... 添加更多知识库条目 ... -->
+            </ul>
+        </section>
+
+        <!-- 分区三：AI 社区 -->
+                <!-- 分区三：AI 社区 (改为列表样式) -->
+                <section class="community-section list-style-section"> <!-- 添加 list-style-section 类 -->
+                    <h2><i class="ri-group-line"></i> AI 学习社区推荐</h2> <!-- 修改标题 -->
+                     <ul class="resource-list">
+                         <!-- 社区条目 1: 微信群/知识星球等 -->
+                         <li class="list-item community-item"> <!-- 添加 community-item 类 -->
+                             <div class="item-header">
+                                 <h3 class="item-title">大白 AI 学习交流群 (微信)</h3> <!-- 社群名称 -->
+                                 <!-- 右侧可以放二维码触发或其他 -->
+                                 <span class="item-link">
+                                     <a href="javascript:void(0);" class="show-qr-code" data-qr="images/community/wechat-group.png"> <!-- 使用 JS 显示二维码 -->
+                                         扫码加入 <i class="ri-qr-code-line"></i>
+                                     </a>
+                                 </span>
+                             </div>
+                             <p class="item-description">加入我们的微信交流群，与 AI 爱好者、开发者和学习者实时互动，分享资源，解答疑问，获取最新资讯。</p>
+                         </li>
+        
+                         <!-- 社区条目 2: Discord / Slack 等 -->
+                         <li class="list-item community-item">
+                              <div class="item-header">
+                                 <h3 class="item-title"><a href="你的 Discord 邀请链接" target="_blank">AI Explorers Discord 服务器</a></h3> <!-- !! 替换链接 !! -->
+                                 <span class="item-link">
+                                     <a href="你的 Discord 邀请链接" target="_blank"> <!-- !! 替换链接 !! -->
+                                         访问频道 <i class="ri-discord-fill"></i> <!-- Discord 图标 -->
+                                     </a>
+                                 </span>
+                             </div>
+                             <p class="item-description">一个活跃的 Discord 社区，分设不同主题频道（如 NLP、CV、新手提问等），适合喜欢即时讨论和语音交流的朋友。</p>
+                         </li>
+        
+                         <!-- 社区条目 3: 论坛/邮件列表/GitHub Discussions 等 -->
+                         <li class="list-item community-item">
+                               <div class="item-header">
+                                 <h3 class="item-title"><a href="你的论坛/讨论区链接" target="_blank">大白小应用 GitHub Discussions</a></h3> <!-- !! 替换链接 !! -->
+                                   <span class="item-link">
+                                     <a href="你的论坛/讨论区链接" target="_blank"> <!-- !! 替换链接 !! -->
+                                         参与讨论 <i class="ri-github-fill"></i> <!-- GitHub 图标 -->
+                                     </a>
+                                 </span>
+                             </div>
+                             <p class="item-description">在我们的 GitHub 项目讨论区，可以针对具体工具提出问题、反馈 Bug、分享使用技巧，或参与源码讨论。</p>
+                         </li>
+        
+                         <!-- ... 添加更多社区/渠道条目 ... -->
+        
+                    </ul>
+                </section>
+        
+                
+
+    </main>
+
+   
+<!-- 4. 页脚 -->
+<footer class="footer-v2">
+    <div class="container">
+        <p>© 2025 大白小应用. AI 驱动创新.</p>
+    </div>
+</footer>    </footer>
+
+    <!-- 腾讯问卷悬浮按钮代码 -->
+    <div id="idy_floatdiv" style="position:fixed;display:flex;right:0;bottom:20%;width:30px;border-top-left-radius:6px;border-bottom-left-radius:6px;height:100px;background:#007bff;line-height: 24px;writing-mode:vertical-rl;align-items:center;justify-content:center;font-family:PingFangSC-Regular;font-size:16px; z-index: 999;"> <a href="https://wj.qq.com/s2/19822176/5bfb/" target="blank" style="color:#FFFFFF;text-decoration:none;">网站建议</a> </div>
+
+</body>
+</html>

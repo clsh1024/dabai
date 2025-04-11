@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Description (针对联系页面) -->
+    <meta name="description" content="联系大白小应用，获取支持、提出宝贵建议或进行商务合作。我们期待听到您的声音！">
+    <title>联系我们 - 大白小应用</title>
+    <link rel="stylesheet" href="style-v4.css"> <!-- 链接同一个 CSS 文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script>
+        // 百度统计代码
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?fdd5ceaf0582d764eb6956e3a9ab24af"; // 确认是你的ID
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 可以添加一些联系页面的特定样式 -->
+    <style>
+        .contact-page-main {
+            padding: 50px 0; /* 给主要内容区域增加上下内边距 */
+        }
+        .contact-page-main h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+        .contact-info a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        hr.section-divider { /* 分隔线样式 */
+            border: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 50px auto; /* 上下边距 */
+            max-width: 100px; /* 分隔线宽度 */
+        }
+        /* 移除联系页面建议模块的背景和边框，使其更融入页面 */
+        .contact-page-main .suggestion-section {
+             margin-top: 0; /* 重置顶部边距 */
+             padding-top: 0; /* 重置顶部内边距 */
+             background-color: transparent;
+             border-top: none;
+        }
+        /* (可选) 隐藏联系页面建议模块内的重复标题和引导语 */
+        .contact-page-main .suggestion-section h2,
+        .contact-page-main .suggestion-section .suggestion-intro {
+             display: none;
+        }
+         .contact-page-main .suggestion-form-wrapper {
+             box-shadow: none; /* 移除表单背景的阴影 */
+             border: none;
+             padding: 10px 0 0 0; /* 轻微调整表单上边距，移除左右内边距 */
+             max-width: 650px; /* 可以稍微加宽 */
+         }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. 导航栏 (和首页完全一样) -->
+    <header class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="ri-robot-2-line logo-icon"></i>
+                大白小应用
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="javascript:void(0);">关于我</a></li>
+                    <li><a href="contact.html" class="active">联系方式</a></li> <!-- 将此页设为 active -->
+                    <li><a href="too-down.html">工具源码</a></li>
+                    <li><a href="ai-learning.html">AI学习</a></li>
+                </ul>
+            </nav>
+            <!-- 搜索框表单 (和首页完全一样) -->
+            <form action="/search" method="get" class="search-form" id="searchForm">
+                <input type="search" id="searchInput" name="q" placeholder="AI搜索..." class="search-input" aria-label="搜索工具">
+                <button type="submit" class="search-button" aria-label="搜索">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <!-- 2. 主要内容区域 -->
+    <main class="container contact-page-main">
+        <h1>联系我们</h1>
+        <div class="contact-info">
+            <p>如果您在使用过程中遇到任何问题、有改进建议，或是希望进行商务合作，</p>
+            <p>欢迎通过以下邮箱与我们联系，我们将在收到邮件后尽快回复。</p>
+            <p><strong>电子邮箱：</strong> <a href="mailto:your_email@example.com">your_email@example.com</a></p> <!-- 替换成你的邮箱 -->
+        </div>
+
+        <hr class="section-divider"> <!-- 添加分隔线 -->
+
+        
+
+    </main>
+
+    <!-- 4. 页脚 (和首页完全一样) -->
+    <footer class="footer-v2">
+        <div class="container">
+            <p>© 2024 大白小应用. AI 驱动创新.</p>
+        </div>
+    </footer>
+ <!-- ↓↓↓ 粘贴你的腾讯问卷 iframe 代码到这里 ↓↓↓ -->
+                <!-- Wenjuan Layer Begin --> 
+                <div id="idy_floatdiv" style="position:fixed;display:flex;right:0;bottom:20%;width:30px;border-top-left-radius:6px;border-bottom-left-radius:6px;height:100px;background:#007bff;line-height: 24px;writing-mode:vertical-rl;align-items:center;justify-content:center;font-family:PingFangSC-Regular;font-size:16px;"> <a href="https://wj.qq.com/s2/19822176/5bfb/" target="blank" style="color:#FFFFFF;text-decoration:none;">网站建议</a> </div>
+                <!-- Wenjuan Layer End -->
+                <!-- ↑↑↑ iframe 代码结束 ↑↑↑ -->
+
+</body>
+</html>
